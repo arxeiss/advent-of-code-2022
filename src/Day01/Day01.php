@@ -11,22 +11,22 @@ class Day01 implements Runnable
 {
     public function part1(string $input): string
     {
-        $maxCallories = Parser::getElements($input, "\n\n")->map(
-            static fn ($el) => Parser::getIntLines($el)->sum(),
-        )->max();
+        $maxCalories = Parser::getElements($input, "\n\n")
+            ->map(static fn ($el) => Parser::getIntLines($el)->sum())
+            ->max();
 
-        return (string)$maxCallories;
+        return (string)$maxCalories;
     }
 
     public function part2(string $input): string
     {
-        $maxCallories = Parser::getElements($input, "\n\n")
+        $top3Calories = Parser::getElements($input, "\n\n")
             ->map(static fn ($el) => Parser::getIntLines($el)->sum())
             ->sort()
             ->reverse()
             ->slice(0, 3)
             ->sum();
 
-        return (string)$maxCallories;
+        return (string)$top3Calories;
     }
 }
