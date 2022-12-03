@@ -42,3 +42,4 @@ Then it remains the same, just use `./php` instead of `php`
 
 - [Day 1: Calorie Counting](/src/Day1)
 - [Day 2: Rock Paper Scissors](/src/Day2)
+- [Day 3: Rucksack Reorganization](/src/Day3)
