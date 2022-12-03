@@ -5,17 +5,14 @@ declare(strict_types=1);
 namespace Aoc2022\Day03;
 
 use Aoc2022\Contracts\Runnable;
-use Aoc2022\Utils\Collection;
 use Aoc2022\Utils\Parser;
 
 class Day03 implements Runnable
 {
     public function part1(string $input): string
     {
-        $res = Parser::getLines($input)->map(static function ($l) {
-            $ruckSack = new Collection(\str_split($l));
-            $parts = $ruckSack->chunk($ruckSack->count() / 2);
-
+        $res = Parser::getLineElements($input, '')->map(static function ($r) {
+            $parts = $r->chunk($r->count() / 2);
             $codeEl = \ord($parts[0]->intersect($parts[1])->first());
 
             return $codeEl - ($codeEl >= 97 ? 97 - 1 : 65 - 27);
@@ -26,8 +23,7 @@ class Day03 implements Runnable
 
     public function part2(string $input): string
     {
-        $res = Parser::getLines($input)
-            ->map(static fn ($l) => new Collection(\str_split($l)))
+        $res = Parser::getLineElements($input, '')
             ->chunk(3)
             ->map(static function ($elves) {
                 $elves = $elves->values();

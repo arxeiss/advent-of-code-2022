@@ -15,7 +15,9 @@ class Parser
 
     public static function getElements(string $input, string $separator): Collection
     {
-        return (new Collection(\explode($separator, $input)))->filter(static fn ($e) => \strlen($e) > 0)->values();
+        return (new Collection($separator === '' ? \str_split($input) : \explode($separator, $input)))
+            ->filter(static fn ($e) => \strlen($e) > 0)
+            ->values();
     }
 
     public static function getLineElements(string $input, string $delimiter = ' '): Collection
