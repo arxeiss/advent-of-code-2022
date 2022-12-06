@@ -10,6 +10,7 @@ use Aoc2022\Day02\Day02;
 use Aoc2022\Day03\Day03;
 use Aoc2022\Day04\Day04;
 use Aoc2022\Day05\Day05;
+use Aoc2022\Day06\Day06;
 
 class Runner
 {
@@ -20,6 +21,7 @@ class Runner
         3 => Day03::class,
         4 => Day04::class,
         5 => Day05::class,
+        6 => Day06::class,
     ];
 
     public function start(string $argDay = '', string $argPart = ''): void
