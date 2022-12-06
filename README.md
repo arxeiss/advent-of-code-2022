@@ -45,3 +45,4 @@ Then it remains the same, just use `./php` instead of `php`
 - [Day 3: Rucksack Reorganization](/src/Day3)
 - [Day 4: Camp Cleanup](/src/Day4)
 - [Day 5: Supply Stacks](/src/Day5)
+- [Day 6: Tuning Trouble](/src/Day6)
