@@ -8,16 +8,19 @@ use Aoc2022\Utils\Collection;
 
 class Parser
 {
-    public static function getLines(string $input): Collection
+    public static function getLines(string $input, bool $filterEmpty = true): Collection
     {
-        return static::getElements($input, "\n");
+        return static::getElements($input, "\n", $filterEmpty);
     }
 
-    public static function getElements(string $input, string $separator): Collection
+    public static function getElements(string $input, string $separator, bool $filterEmpty = true): Collection
     {
-        return (new Collection($separator === '' ? \str_split($input) : \explode($separator, $input)))
-            ->filter(static fn ($e) => \strlen($e) > 0)
-            ->values();
+        $c = (new Collection($separator === '' ? \str_split($input) : \explode($separator, $input)));
+        if ($filterEmpty) {
+            $c = $c->filter(static fn ($e) => \strlen($e) > 0)->values();
+        }
+
+        return $c;
     }
 
     public static function getLineElements(string $input, string $delimiter = ' '): Collection

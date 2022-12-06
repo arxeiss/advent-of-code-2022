@@ -9,6 +9,7 @@ use Aoc2022\Day01\Day01;
 use Aoc2022\Day02\Day02;
 use Aoc2022\Day03\Day03;
 use Aoc2022\Day04\Day04;
+use Aoc2022\Day05\Day05;
 
 class Runner
 {
@@ -18,6 +19,7 @@ class Runner
         2 => Day02::class,
         3 => Day03::class,
         4 => Day04::class,
+        5 => Day05::class,
     ];
 
     public function start(string $argDay = '', string $argPart = ''): void
@@ -68,11 +70,11 @@ class Runner
         if ($d > 0) {
             $toRun = [$d => $this->days[$d]];
         }
-        echo "           |   Min [ms]   |   Avg [ms]   |   Max [ms]\n";
+        echo "           |  Min [ms]  |  Avg [ms]  |  Max [ms]\n";
         foreach ($toRun as $n => $class) {
             $c = new $class();
             $input = \file_get_contents('src/Day' . \str_pad("{$n}", 2, '0', \STR_PAD_LEFT) . '/input.txt');
-            \printf(" Day %2d  ------------------------------------------------\n", $n);
+            \printf(" Day %2d  -------------------------------------------\n", $n);
 
             $durations = [];
             for ($i = 0; $i < 5; $i += 1) {
@@ -82,7 +84,7 @@ class Runner
                 $durations[] = \round(($end - $start) * 1000, 4);
             }
             \printf(
-                "   Part 1  |%11.4f   |%11.4f   |%11.4f\n",
+                "   Part 1  |%10.4f  |%10.4f  |%10.4f\n",
                 \min($durations),
                 \array_sum($durations) / 5,
                 \max($durations),
@@ -96,7 +98,7 @@ class Runner
                 $durations[] = \round(($end - $start) * 1000, 4);
             }
             \printf(
-                "   Part 2  |%11.4f   |%11.4f   |%11.4f\n",
+                "   Part 2  |%10.4f  |%10.4f  |%10.4f\n",
                 \min($durations),
                 \array_sum($durations) / 5,
                 \max($durations),

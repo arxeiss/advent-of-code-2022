@@ -21,6 +21,11 @@
     <!-- Add set of strict rules if needed -->
     <rule ref="./vendor/arxeiss/coding-standards/Rules/phpcs-strict.xml">
         <exclude name="Squiz.Strings.DoubleQuoteUsage.ContainsVar"/>
+
+        <!-- As long as PHP Stan is not used, this can be ignored -->
+        <exclude name="SlevomatCodingStandard.TypeHints.ParameterTypeHint.MissingTraversableTypeHintSpecification"/>
+        <exclude name="SlevomatCodingStandard.TypeHints.ReturnTypeHint.MissingTraversableTypeHintSpecification"/>
+        <exclude name="SlevomatCodingStandard.TypeHints.PropertyTypeHint.MissingTraversableTypeHintSpecification"/>
     </rule>
     <rule ref="SlevomatCodingStandard.Functions.RequireArrowFunction"/>
 

@@ -16,22 +16,14 @@ class Day02 implements Runnable
     /** @var array<string, int> */
     private static array $points = ['X' => 1, 'Y' => 2, 'Z' => 3];
 
-    /**
-	 * phpcs:disable Squiz.Arrays.ArrayDeclaration.IndexNoNewline
-     *
-     * @var array<string, int>
-     */
+    /** phpcs:disable Squiz.Arrays.ArrayDeclaration.IndexNoNewline */
     private static array $result = [
         'AX' => 3, 'AY' => 6, 'AZ' => 0,
         'BX' => 0, 'BY' => 3, 'BZ' => 6,
         'CX' => 6, 'CY' => 0, 'CZ' => 3,
     ];
 
-    /**
-	 * phpcs:disable Squiz.Arrays.ArrayDeclaration.IndexNoNewline
-     *
-     * @var array<string, string>
-     */
+    /** phpcs:disable Squiz.Arrays.ArrayDeclaration.IndexNoNewline */
     private static array $toPlay = [
         'AX' => 'Z', 'AY' => 'X', 'AZ' => 'Y',
         'BX' => 'X', 'BY' => 'Y', 'BZ' => 'Z',
