@@ -80,6 +80,9 @@ class Runner
             $input = \file_get_contents('src/Day' . \str_pad("{$n}", 2, '0', \STR_PAD_LEFT) . '/input.txt');
             \printf(" Day %2d  -------------------------------------------\n", $n);
 
+            // There is always some "warmup" probably, because it runs much slower than all others
+            // And that happens sometimes only for first part.
+            $c->part1($input);
             $durations = [];
             for ($i = 0; $i < 5; $i += 1) {
                 $start = \microtime(true);
@@ -94,6 +97,7 @@ class Runner
                 \max($durations),
             );
 
+            $c->part2($input);
             $durations = [];
             for ($i = 0; $i < 5; $i += 1) {
                 $start = \microtime(true);
