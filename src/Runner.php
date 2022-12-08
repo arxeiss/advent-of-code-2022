@@ -12,6 +12,7 @@ use Aoc2022\Day04\Day04;
 use Aoc2022\Day05\Day05;
 use Aoc2022\Day06\Day06;
 use Aoc2022\Day07\Day07;
+use Aoc2022\Day08\Day08;
 
 class Runner
 {
@@ -24,6 +25,7 @@ class Runner
         5 => Day05::class,
         6 => Day06::class,
         7 => Day07::class,
+        8 => Day08::class,
     ];
 
     public function start(string $argDay = '', string $argPart = ''): void
@@ -80,15 +82,13 @@ class Runner
             $input = \file_get_contents('src/Day' . \str_pad("{$n}", 2, '0', \STR_PAD_LEFT) . '/input.txt');
             \printf(" Day %2d  -------------------------------------------\n", $n);
 
-            // There is always some "warmup" probably, because it runs much slower than all others
-            // And that happens sometimes only for first part.
+            // There is always some "warmup" probably, because it runs much slower than all others.
             $c->part1($input);
             $durations = [];
             for ($i = 0; $i < 5; $i += 1) {
                 $start = \microtime(true);
                 $c->part1($input);
-                $end = \microtime(true);
-                $durations[] = \round(($end - $start) * 1000, 4);
+                $durations[] = \round((\microtime(true) - $start) * 1000, 4);
             }
             \printf(
                 "   Part 1  |%10.4f  |%10.4f  |%10.4f\n",
@@ -102,8 +102,7 @@ class Runner
             for ($i = 0; $i < 5; $i += 1) {
                 $start = \microtime(true);
                 $c->part2($input);
-                $end = \microtime(true);
-                $durations[] = \round(($end - $start) * 1000, 4);
+                $durations[] = \round((\microtime(true) - $start) * 1000, 4);
             }
             \printf(
                 "   Part 2  |%10.4f  |%10.4f  |%10.4f\n",
