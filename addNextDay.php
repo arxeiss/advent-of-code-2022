@@ -61,13 +61,13 @@ final class Day{$nextDay}Test extends TestCase
     public function testPart1(): void
     {
         \$result = (new Day{$nextDay}())->part1(\$this->getTestInput());
-        \$this->assertSame(\$result, '21');
+        \$this->assertSame(\$result, '');
     }
 
     public function testPart2(): void
     {
         \$result = (new Day{$nextDay}())->part2(\$this->getTestInput());
-        \$this->assertSame(\$result, '8');
+        \$this->assertSame(\$result, '');
     }
 }
 
