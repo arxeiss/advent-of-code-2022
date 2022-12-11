@@ -28,6 +28,16 @@ class Parser
         return static::getLines($input)->map(static fn ($e) => static::getElements($e, $delimiter));
     }
 
+    public static function getRegexElements(string $input, string $regex): Collection
+    {
+        $result = \preg_match($regex, $input, $matches);
+        if (!($result > 0)) {
+            throw new \Exception("regex doesn't match input");
+        }
+
+        return new Collection($matches);
+    }
+
     public static function getIntLines(string $input): Collection
     {
         return static::getLines($input)->map(static fn ($i) => (int)$i);

@@ -50,3 +50,4 @@ Then it remains the same, just use `./php` instead of `php`
 - [Day 8: Treetop Tree House](/src/Day8)
 - [Day 9: Rope Bridge](/src/Day9)
 - [Day 10: Cathode-Ray Tube](/src/Day10)
+- [Day 11: Monkey in the Middle](/src/Day11)
